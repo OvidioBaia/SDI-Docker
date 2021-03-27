@@ -14,9 +14,11 @@ exports.create = async (req, res) =>{
 
 exports.show = async (req, res) =>{
     try {
+        const newUser = { nome:"Ruan",idade:35};
+        const user = await userModel.create(newUser);
         const usuario = await userModel.find();
         //console.log(usuario)
-        res.status(200).send(usuario);
+        res.status(200).send(user);
     } catch (error) {
         console.log(erro)
         res.send(erro);
